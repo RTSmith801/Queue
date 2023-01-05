@@ -73,12 +73,27 @@ Queue<Type>::Queue(){
 //Copy Constructor, creates a deep copy of the other stack
 template <class Type>
 Queue<Type>::Queue(const Queue &other){
-
+    first_ = nullptr;
+    last_ = nullptr;
+    size_ = 0;
+    auto currentNode = other.first_;
+    while(currentNode){
+        enqueue(currentNode->data);
+        currentNode = currentNode->nextNode;
+    }
 }
 
 //Deallocates memory by deleting all the existing nodes in the Queue
 template <class Type>
-Queue<Type>::~Queue(){}
+Queue<Type>::~Queue(){
+    Node<Type>* temp = first_;
+
+    while(first_ != nullptr){
+        temp = first_;
+        first_ = first_->nextNode;
+        delete temp;
+    }
+}
 
 //Adds an item to the end of the queue
 template <class Type>

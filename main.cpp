@@ -27,8 +27,8 @@ int main()
     cout << "Testing queue\n" << endl;
     testConstructor();
     testQueue();
-//    testCopyConstructor();
-//    testEqualOperator();
+    testCopyConstructor();
+    testEqualOperator();
     return 0;
 }
 void testConstructor(){
