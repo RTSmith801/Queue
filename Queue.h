@@ -59,7 +59,8 @@ public:
     // You may use a private recursive to code the logic, then the operator would just return the results of the
     // recursive function  such as...  string recursive_str(Node<Type> *curr);
     friend std::ostream &operator<< <>(std::ostream &out, Queue<Type> &q);
-//    friend std::ostream &operator<< (std::ostream &out, Queue<Type> &q);
+
+    std::string recursiveString(Node<Type> *curr) const;
 };
 
 //Constructor, sets the front and back pointer to nullptr and initializes any other additional variables
@@ -173,15 +174,39 @@ void Queue<Type>::clear(){
 template <class Type>
 std::ostream &operator<< (std::ostream &out, Queue<Type> &q)
 {
-    auto currentNode = q.first_;
-    while(currentNode){
-        out << currentNode->data;
-        if(currentNode->nextNode){
-            out << "->";
-        }//end if
-        currentNode = currentNode->nextNode;
-    }//end while
+    if(q.first_ == nullptr){
+        throw std::out_of_range("List is empty");
+    }
+    else{
+
+
+    //example without recursion.
+//    auto currentNode = q.first_;
+//    while(currentNode){
+//        out << currentNode->data;
+//        if(currentNode->nextNode){
+//            out << "->";
+//        }//end if
+//        currentNode = currentNode->nextNode;
+//    }//end while
+//    return out;
+
+    //with recursion.
+    out << q.recursiveString(q.first_);
     return out;
+    }
+}
+
+template <class Type>
+std::string Queue<Type>::recursiveString(Node<Type> *curr) const{
+    //base case
+    if(!(curr->nextNode)){
+        return std::to_string(curr->data);
+    }
+    //recursive call
+    else{
+        return std::to_string(curr->data) + "->" + recursiveString(curr->nextNode);
+    }
 }
 
 #endif //INC_04_TRY_IT_OUT_QUEUE_QUEUE_H
