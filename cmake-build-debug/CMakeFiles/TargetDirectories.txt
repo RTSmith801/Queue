@@ -1,3 +1,0 @@
-C:/Users/Rick/OneDrive/Desktop/Weber State/CS 2420/04 Try it out - Queue/cmake-build-debug/CMakeFiles/04_Try_it_out___Queue.dir
-C:/Users/Rick/OneDrive/Desktop/Weber State/CS 2420/04 Try it out - Queue/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Rick/OneDrive/Desktop/Weber State/CS 2420/04 Try it out - Queue/cmake-build-debug/CMakeFiles/rebuild_cache.dir
